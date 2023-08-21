@@ -1,0 +1,365 @@
+@charset "UTF-8";
+* {
+  z-index: 10;
+}
+
+/* Animations */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F3F3F3;
+  z-index: 9999; /* le loader est au-dessus de tout le reste */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+}
+
+.loading .loader-container {
+  animation: hideLoader 3s ease-in-out forwards; /* Délai de 2 secondes avant de masquer le loader */
+}
+
+.loader {
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear; /* Durée de l'animation : 2 secondes, animation en boucle */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes hideLoader {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+body {
+  max-width: 375px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f2f2f2;
+}
+
+main {
+  width: 375px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Header */
+header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+header .bande {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 14px 0px 12px 0px;
+}
+header .bande a {
+  padding-left: 17px;
+}
+header .bande i {
+  color: black;
+}
+header .Logo {
+  width: 30%;
+  padding-left: 100px;
+}
+header .restaurant_couverture {
+  width: 375px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: sticky;
+  z-index: 0;
+}
+
+.accueil_menu {
+  margin-top: -50px;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: #EAEAEA;
+}
+.accueil_menu h1 {
+  font-family: Shrikhand;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 400;
+  left: 0;
+  padding-left: 20px;
+}
+.accueil_menu i {
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  font-size: 160%;
+}
+
+.menu {
+  background-color: #EAEAEA;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.menu h2 {
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 300;
+  padding-left: 15px;
+  display: inline-block;
+  position: relative;
+}
+.menu h2::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 15px;
+  width: 50%;
+  height: 2px;
+  background-color: #99E2D0;
+}
+.menu section {
+  background-color: #F3F3F3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  box-shadow: inset 0px 6px 10px -10px rgba(0, 0, 0, 0.5);
+  margin: 10px auto 10px auto;
+  width: 90%;
+  border-radius: 20px;
+}
+.menu section h3 {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  padding-top: 3px;
+}
+.menu section p {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+}
+.menu section .texte_menu {
+  padding: 10px 0px 10px 20px;
+  flex: 1;
+  overflow: hidden; /* Masque le texte qui dépasse la largeur maximale */
+}
+.menu section .texte_menu p, .menu section .texte_menu h3 {
+  white-space: nowrap; /* Empêche le texte de se retourner à la ligne */
+  overflow: hidden; /* Masque le texte qui dépasse la largeur du conteneur */
+  text-overflow: ellipsis; /* Ajoute des pointillés à la fin du texte tronqué */
+}
+.menu section .prix_menu {
+  position: relative;
+  overflow: hidden;
+}
+.menu section .prix_menu .prix-container {
+  height: 100%;
+  display: flex; /* Utilisez display: flex pour centrer le contenu verticalement */
+  align-items: center; /* Centrez verticalement le contenu du prix-container */
+  position: relative; /* Utilisez display: inline-block pour que le prix et la boîte verte soient sur la même ligne */
+  transform: translateX(0); /* Pour la position d'origine */
+  transition: transform 3s ease; /* Applique la transition sur le conteneur */
+}
+.menu section .prix_menu p, .menu section .prix_menu span {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 30px 20px 0px 20px;
+}
+
+footer {
+  padding-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: #353535;
+  color: #FFFFFF;
+  padding: 22px 25px;
+}
+footer .Logo {
+  filter: invert(100%);
+  padding: 10px 0px 10px 0px;
+  max-width: 40%;
+  margin: 0;
+}
+footer article {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+}
+footer article i {
+  width: 20px;
+}
+footer article p {
+  display: flex;
+  gap: 10px;
+}
+
+.menu_icon {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  width: 90px;
+}
+
+.fill-btn {
+  overflow: hidden;
+  position: relative;
+  -webkit-clip-path: url(#menu_icon-svg-path);
+          clip-path: url(#menu_icon-svg-path);
+  transform: scale(0.35);
+}
+
+#fill-btn-path {
+  fill: none;
+  stroke: black;
+  stroke-width: 0.5rem;
+}
+
+.radientBg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  background: linear-gradient(#FF79DA 0%, #9356DC 80%);
+  transform: translateY(100px);
+  transition: transform 0.7s ease-out;
+}
+
+.fill-btn:hover .radientBg {
+  transform: translateY(0);
+}
+
+.fill-btn svg {
+  height: 90px;
+}
+
+.prix_menu {
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox {
+  display: none; /* Masque la checkbox */
+}
+
+.box_verte {
+  width: 60px;
+  height: 100%;
+  border-top-right-radius: 25%;
+  border-bottom-right-radius: 25%;
+  background-color: green;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 130%; /* Ajuster la position initiale */
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: left 1s;
+}
+
+.box_verte i {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  font-size: 18px;
+  color: green;
+  background-color: white;
+  border-radius: 50%;
+}
+
+/* Afficher la boîte verte lorsque la checkbox est cochée */
+.checkbox:checked + label .box_verte {
+  opacity: 1;
+  visibility: visible;
+  left: 100%; /* Décalage vers la gauche */
+}
+
+.checkbox:checked + label span {
+  position: relative;
+  display: block;
+  width: 120px;
+  padding-left: 8px;
+  opacity: 1;
+  visibility: visible;
+  left: calc(100% - 90px); /* Décalage vers la gauche */
+}
+
+.checkbox:checked + label .prix-container {
+  transform: translateX(-30px); /* Décalage vers la gauche */
+}
+
+/* Animation pour l'apparition des sections */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Décalage vers le bas */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* Applique l'animation à chaque section avec un délai différent, et les conserve après l'animation */
+.entrees, .plats, .desserts {
+  opacity: 0; /* Les sections sont invisibles au début */
+  animation: fadeIn 1s ease-in-out forwards; /* Durée de l'animation et animation-fill-mode pour garder les propriétés après l'animation */
+}
+
+.plats {
+  animation-delay: 0.5s; /* Décalage de 0.5s */
+}
+
+.desserts {
+  animation-delay: 1s; /* Décalage de 1s */
+}
+
+.commander p {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  margin: 50px auto 50px auto;
+  text-align: center;
+  width: 180px;
+  border-radius: 20px;
+  padding: 12px;
+  color: white;
+  border: 2px solid white;
+  background: linear-gradient(0deg, rgb(255, 121, 218) 0%, rgb(147, 86, 220) 220%);
+}/*# sourceMappingURL=main.css.map */

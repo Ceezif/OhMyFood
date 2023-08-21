@@ -1,0 +1,65 @@
+@import '../Utils/mixins';
+@import '../Utils/variables';
+@import '../Base/fonts';
+
+.accueil {
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F6F6;
+    padding: 30px 0px 30px 0px;
+    h1 { 
+        @include large-text;
+        max-width: 65%;
+        margin: auto;
+    }
+    section {
+        margin: auto;
+        text-align: center;
+        
+        h2 {
+        @include small-text;
+        }
+
+        p {
+        @include medium-text;
+        border-radius: 20px;
+        padding: 12px;
+        color: white;
+        border: 2px solid white;
+        background: linear-gradient(0deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 220%);
+        }
+    }
+}
+
+input {
+    border: none;
+    outline: none;
+    background-color: #EAEAEA;
+    &::placeholder {
+        font: {
+        weight: bold;
+        }
+    color: black;
+    }
+}
+
+  .search-bar {
+    background-color: #EAEAEA;
+    display: flex;
+    padding: 10px 0px 10px 0px;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    box-shadow: inset 0px 6px 10px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Logo OhMyFood */
+
+  .Logo {
+    display: flex;
+    margin: auto;
+    max-width: 197px;
+    max-height: 36px;
+    padding: 14px 0px 14px 0px;
+    
+  }

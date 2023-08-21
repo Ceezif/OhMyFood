@@ -1,0 +1,32 @@
+/* Bas de page*/ 
+
+@import '../Utils/mixins';
+@import '../Utils/variables';
+
+footer {
+    padding-top: 40px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    background-color: #353535;
+    color: #FFFFFF;
+    padding: 22px 25px;
+
+    .Logo {
+        @include color-invert;
+        padding: 10px 0px 10px 0px;
+        max-width: 40%;
+        margin: 0;
+    }
+
+    article {
+    @include small-text();
+    i {
+        width: 20px;
+    }
+    p {
+        display: flex;
+        gap: 10px;
+    }
+    }
+}

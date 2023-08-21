@@ -1,0 +1,76 @@
+/* Variables globales */
+
+
+
+/* Encadrement des boîtes */
+
+
+/* Animations */
+
+
+
+
+/* Liste des mixins */
+
+
+
+
+@import 'Base/fonts';
+@import 'Base/animations';
+
+
+@import 'Layout/header';
+@import 'Layout/body';
+@import 'Layout/footer';
+@import 'Layout/desktop';
+
+@import 'Composants/buttons';
+
+@import 'Utils/variables';
+@import 'Utils/mixins';
+
+/* * {
+  box-shadow: 1px 1px 1px 1px red;
+} */
+
+a {
+  text-decoration: none;
+}
+
+/*--- Version mobile sans animations, page d'accueil ---*/
+
+
+
+  /* Champ de recherche */
+
+
+
+
+  /* Découvrez nos restaurants - 
+  Réservez le menu
+  Bouton explorer - gradient */
+
+  
+
+
+
+  /* Cartes de restaurants - leur forme -leur contenu  */
+
+
+
+  /* Cœur rempli */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

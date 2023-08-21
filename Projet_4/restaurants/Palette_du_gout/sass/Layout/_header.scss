@@ -1,0 +1,39 @@
+@import '../Utils/mixins';
+@import '../Utils/variables';
+@import '../Base/fonts';
+
+/* Header */
+
+header {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .bande {
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        padding: 14px 0px 12px 0px;
+        a {
+            padding-left: 17px;
+        }
+
+        i {
+            color: black;
+        }
+        
+    }
+    .Logo {
+        width: 30%;
+        padding-left: 100px;
+    }
+    .restaurant_couverture {
+        width: 375px;
+        height: 250px;
+        object-fit: cover;
+        position: sticky;
+        z-index: 0;
+    }
+}
+
+
+

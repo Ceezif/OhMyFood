@@ -1,0 +1,35 @@
+.loader {
+    animation: spin 2s linear infinite; /* animation */
+}
+
+@keyframes fillHeart {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 0%; }
+}
+
+.box-coeur input[type="checkbox"] {
+    display: none; /* Cache la case à cocher */
+}
+
+.box-coeur input[type="checkbox"]:checked ~ label i:before {
+    content: "\f004"; /* Code Unicode pour le cœur rempli (fa-solid) */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+  /* Animation */
+
+    /* Cœur vide */
+.box-coeur i:before {
+    content: "\f08a"; /* Code Unicode pour le cœur vide (fa-regular) */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+}
+
+.box-coeur i:before {
+    transition: content 0.3s;
+}
+
+.fill-btn:hover .radientBg {
+    transform: translateY(0);
+}

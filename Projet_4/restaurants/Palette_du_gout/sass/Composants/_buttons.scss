@@ -1,0 +1,26 @@
+.fill-btn:hover .radientBg {
+    transform: translateY(0);
+}
+
+.radientBg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    background: linear-gradient(#FF79DA 0%, #9356DC 80%);
+    transform: translateY(100px);
+    transition: transform 0.7s ease-out;
+  }
+
+.fill-btn {
+    svg {
+        height: 90px;
+    }
+}
+
+.accueil {
+    .hover_effect:hover {
+        background-color: aqua;
+    }
+}

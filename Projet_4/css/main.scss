@@ -1,0 +1,513 @@
+/* Variables globales */
+
+$purple: #9356DC;
+$blue: #89C8FA;
+$blue2: #003A68;
+$green: #99E2D0;
+$greenfont: #008766;
+$white: #F3F3F3;
+$purewhite: #FFF;
+$grey: #7e7e7e;
+$grey2: #EAEAEA;
+$black: #000000;
+
+/* Encadrement des boîtes */
+
+
+/* Animations */
+
+.loader {
+  animation: spin 2s linear infinite; /* animation */
+}
+
+@keyframes fillHeart {
+  0% { background-position: 0% 0%; }
+  100% { background-position: 100% 0%; }
+}
+
+
+/* Liste des mixins */
+
+@mixin color-invert {
+  filter: invert(100%);
+}
+
+@mixin small-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+}
+
+@mixin medium-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+@mixin large-text {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+/* * {
+  box-shadow: 1px 1px 1px 1px red;
+} */
+
+a {
+  text-decoration: none;
+}
+
+/*--- Version mobile sans animations, page d'accueil ---*/
+
+  body { 
+    display: flex;
+    width: 375px;
+    margin: auto;
+    justify-content: center;
+    flex-direction: column;
+
+  }
+
+  /* Champ de recherche */
+
+  input {
+    border: none;
+    outline: none;
+    background-color: #EAEAEA;
+    width: 38%;
+      &::placeholder {
+        font: {
+          weight: bold;
+        }
+      color: black;
+      }
+  }
+
+  .search-bar {
+    background-color: #EAEAEA;
+    display: flex;
+    padding: 10px 0px 10px 0px;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+    box-shadow: inset 0px 6px 10px -10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Logo OhMyFood */
+
+  .Logo {
+    display: flex;
+    margin: auto;
+    max-width: 197px;
+    max-height: 36px;
+    padding: 14px 0px 14px 0px;
+    
+  }
+
+
+  /* Découvrez nos restaurants - 
+  Réservez le menu
+  Bouton explorer - gradient */
+
+  .accueil {
+    display: flex;
+    flex-direction: column;
+    background-color: #F6F6F6;
+    padding: 30px 0px 30px 0px;
+      h1 {
+        @include large-text;
+        max-width: 65%;
+        margin: auto;
+      }
+      section {
+        margin: auto;
+        text-align: center;
+        
+        h2 {
+          @include small-text;
+        }
+
+        p:hover {
+          background-color: #000000;
+          color: red;
+        }
+
+        p {
+          @include medium-text;
+          border-radius: 20px;
+          padding: 12px;
+          color: white;
+          border: 2px solid white;
+          background: linear-gradient(0deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 220%);
+        }
+      }
+  }
+
+  /* L'incrémenteur - les îcones font-awesome - et les sections de la 
+  partie fonctionnement */
+
+  .Fonctionnement {
+    display: flex;
+    flex-direction: column;
+    
+    margin: auto;
+    max-width: 90%;
+    box-sizing: border-box;
+    height: 440px;
+
+    h1 {
+      @include large-text;
+      margin-bottom: 0;
+    }
+
+    .box-consignes {
+      counter-reset: div-counter;
+      display: flex;
+      flex-direction: column;
+      margin: 15% 0% 0% 0%;
+      gap: 25px;
+      
+      section {
+        @include medium-text;
+        padding: 0px 20px 0px 0px;
+        display: flex;
+        height: 72px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+        background-color: #F6F6F6;
+        gap: 20px;
+
+        .fa-list-ul, .fa-mobile-screen-button {
+          color:$grey;
+        }
+        .fa-store {
+          color:$purple;
+        }
+
+        p {
+          width: 60%;
+        }
+        .numerotation {
+          position: relative;
+          counter-increment: div-counter;
+          color:$white;
+          right: 35px;
+          width: 20px;
+          border-radius: 50%;
+          background-color: $purple;
+        }
+        
+        .numerotation::before {
+          content: counter(div-counter);
+          
+          padding: 1px 3px 1px 5px;
+        }
+      }
+    }
+  }
+
+  /* Cartes de restaurants - leur forme -leur contenu  */
+
+  .Restaurants {
+    
+    background-color: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+    h1 {
+      @include large-text;
+      padding: 30px 0px 0px 20px;
+    }
+
+    a {
+      color: #000000;
+    }
+
+    h2 {
+      @include medium-text;
+      font-weight: bold;
+    }
+    section {
+      
+      display: flex;
+      flex-direction: column;
+      margin: auto;
+      width: 90%;
+      border-radius: 20px;
+      background-color: #FFFFFF;
+
+    }
+    img {
+      border-radius: 20px 20px 0px 0px;
+      object-fit: cover; 
+      position: absolute; 
+      width: 100%; 
+      height: 100%;  
+    }
+    h2, p {
+      margin: 0;
+    }
+    p {
+      @include small-text;
+      font-size: 16px;
+    }
+  }
+  .box-image {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    
+    width: 100%; 
+    height: 170px;
+  }
+
+  .box-nouveau {
+    position: absolute; /* Permet de positionner la boîte par rapport au conteneur parent */
+    top: 20px; /* placer la boîte verticalement */
+    right: 20px; /* placer la boîte horizontalement */
+    width: 89px; 
+    height: 29px; 
+    display: flex;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+    background-color: $green; /* Couleur de fond de la boîte */
+    color: $greenfont;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;  
+
+  }
+
+  .box-texte {
+    display: flex;
+    padding: 15px 2px 12px 8px;
+    justify-content: space-between;
+  }
+  .box-nom_lieu {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 0px 10px;
+  }
+
+
+  .box-coeur {
+    display: inline-block;
+    position: relative;
+    padding-right: 10px;
+  }
+  
+  .box-coeur input[type="checkbox"] {
+    display: none; /* Cache la case à cocher */
+  }
+  
+  .box-coeur i {
+    font-size: 24px;
+    color: #ff0000;
+  }
+  
+  .box-coeur label {
+    cursor: pointer; /* Curseur de la souris en forme de main pour indiquer le clic */
+  }
+  
+  /* Cœur vide */
+  .box-coeur i:before {
+    content: "\f08a"; /* Code Unicode pour le cœur vide (fa-regular) */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 400;
+  }
+  
+  /* Cœur rempli */
+  .box-coeur input[type="checkbox"]:checked ~ label i:before {
+    content: "\f004"; /* Code Unicode pour le cœur rempli (fa-solid) */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+  }
+  
+  /* Animation */
+  .box-coeur i:before {
+    transition: content 0.3s;
+  }
+
+
+/* Bas de page*/ 
+
+footer {
+  padding-top: 40px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  background-color: #353535;
+  color: #FFFFFF;
+  padding: 22px 25px;
+
+  .Logo {
+    @include color-invert;
+    padding: 10px 0px 10px 0px;
+    max-width: 40%;
+    margin: 0;
+    
+  }
+
+  article {
+    @include small-text();
+    i {
+      width: 20px;
+    }
+    p {
+      display: flex;
+      gap: 10px;
+    }
+    }
+}
+
+.menu_icon {
+  display: flex;
+  align-items: center;
+  height: 30px;
+  width: 90px;
+}
+
+.fill-btn {
+  overflow: hidden;
+  position: relative;
+  clip-path: url(#menu_icon-svg-path);
+  transform: scale(0.35);
+}
+
+#fill-btn-path
+{
+  fill: none;
+  stroke: black;
+  stroke-width: 0.5rem;
+}
+
+.radientBg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 1;
+  background: linear-gradient(#FF79DA 0%, #9356DC 80%);
+  transform: translateY(100px);
+  transition: transform 0.7s ease-out;
+}
+
+.fill-btn:hover .radientBg {
+  transform: translateY(0);
+}
+
+.fill-btn {
+  svg {
+    height: 90px;
+  }
+}
+
+/* Version desktop */
+
+@media screen and (min-width: 768px) {
+  body {
+    min-width: 768px;
+    
+    width: auto;
+  }
+
+  main {
+    margin: auto;
+  }
+
+  /* Champ de recherche */
+
+  input {
+    width: 12%;
+  }
+
+  .accueil  {
+    h1 {
+      max-width: none;
+    }  
+  }
+
+  .Fonctionnement {
+    display: flex;
+    max-width: initial;
+    height: 190px;
+    margin: 0;
+    h1 {
+      left: 10%;
+      position: relative;
+    }
+    .box-consignes {
+      flex-direction: row;
+      margin: 0;
+      position: relative;
+      top: 30px;
+      left: 10%;
+      max-width: 1080px;
+      section {
+        justify-content: initial;
+        width: 30%;
+        gap: 15px;
+        .numerotation {
+          right: 15px;
+        }
+
+        p {
+          white-space: nowrap ;
+          gap: 2px;
+        }
+      }
+    }
+  }
+
+  .Restaurants {
+    flex-direction: column;
+    h1 {
+      position: relative;
+      left: 10%;
+      padding: 30px 0px 0px 0px
+    }
+    
+    .box_restaurants {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1080px;
+      margin: auto;
+      gap: 50px;
+      section {
+        width: 490px;
+        gap: 20px;
+        
+      }
+    }
+  }
+
+  
+
+  footer {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 114px;
+    gap: 30px;
+    article {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 30px;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body {
+    margin: auto;
+
+  }
+
+
+}

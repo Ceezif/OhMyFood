@@ -1,0 +1,317 @@
+@import '../Utils/mixins';
+@import '../Utils/variables';
+
+body { 
+    display: flex;
+    width: 375px;
+    margin: auto;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+/* L'incrémenteur - les îcones font-awesome - et les sections de la 
+  partie fonctionnement */
+
+.accueil_menu {
+    margin-top: -50px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #EAEAEA;
+    h1 {
+        font-family: Shrikhand;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 400;
+        left: 0;
+        padding-left: 20px;
+
+    }
+    i {
+        padding-right: 30px;
+        display: flex;
+        align-items: center;
+        font-size: 160%;
+    }
+}
+
+.menu {
+    background-color: #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    h2 {
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 300;
+        padding-left: 15px;
+        display: inline-block;
+        position: relative;
+    }
+
+    h2::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 15px;
+        width: 50%;
+        height: 2px;
+        background-color: $greenbar;
+    }
+    section {
+        background-color: #F3F3F3;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        box-shadow: inset 0px 6px 10px -10px rgba(0, 0, 0, 0.5);
+        margin: 10px auto 10px auto;
+        width: 90%;
+        border-radius: 20px;
+        h3 {
+            margin: 0;
+            @include nom-menu;
+            padding-top: 3px;
+        }
+        p { 
+            margin: 0;
+            @include assaisonnement-menu;
+        }
+
+        .texte_menu {
+            padding: 10px 0px 10px 20px;
+            flex: 1;
+            overflow: hidden; /* Masque le texte qui dépasse la largeur maximale */
+
+            p, h3 {
+            
+            white-space: nowrap; /* Empêche le texte de se retourner à la ligne */
+            overflow: hidden; /* Masque le texte qui dépasse la largeur du conteneur */
+            text-overflow: ellipsis; /* Ajoute des pointillés à la fin du texte tronqué */
+            }
+        }
+        .prix_menu {
+            position: relative;
+            overflow: hidden;
+            
+
+            .prix-container {
+                height: 100%;
+                display: flex; /* Utilisez display: flex pour centrer le contenu verticalement */
+                align-items: center; /* Centrez verticalement le contenu du prix-container */
+                position: relative; /* Utilisez display: inline-block pour que le prix et la boîte verte soient sur la même ligne */
+                transform: translateX(0); /* Pour la position d'origine */
+                transition: transform 3s ease; /* Applique la transition sur le conteneur */
+            }
+
+            p, span {
+                @include prix-menu;
+                padding: 30px 10px 0px 20px;
+            }
+        }
+    }
+}
+
+.Fonctionnement {
+    display: flex;
+    flex-direction: column;
+    
+    margin: auto;
+    max-width: 90%;
+    box-sizing: border-box;
+    height: 440px;
+
+    h1 {
+    @include large-text;
+    margin-bottom: 0;
+    }
+
+    .box-consignes {
+    counter-reset: div-counter;
+    display: flex;
+    flex-direction: column;
+    margin: 15% 0% 0% 0%;
+    gap: 25px;
+    
+    section {
+        @include medium-text;
+        padding: 0px 20px 0px 0px;
+        display: flex;
+        height: 72px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+        background-color: #F6F6F6;
+        gap: 20px;
+
+        .fa-list-ul, .fa-mobile-screen-button {
+        color:$grey;
+        }
+        .fa-store {
+        color:$purple;
+        }
+
+        p {
+        width: 60%;
+        }
+        .numerotation {
+        position: relative;
+        counter-increment: div-counter;
+        color:$white;
+        right: 35px;
+        width: 20px;
+        border-radius: 50%;
+        background-color: $purple;
+        }
+        
+        .numerotation::before {
+        content: counter(div-counter);
+        
+        padding: 1px 3px 1px 5px;
+        }
+    }
+    }
+}
+
+.Restaurants {
+    
+    background-color: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+    h1 {
+    @include large-text;
+    padding: 30px 0px 0px 20px;
+    }
+
+    a {
+    color: #000000;
+    }
+
+    h2 {
+    @include medium-text;
+    font-weight: bold;
+    }
+    section {
+    
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+
+    }
+    img {
+    border-radius: 20px 20px 0px 0px;
+    object-fit: cover; 
+    position: absolute; 
+    width: 100%; 
+    height: 100%;  
+    }
+    h2, p {
+    margin: 0;
+    }
+    p {
+    @include small-text;
+    font-size: 16px;
+    }
+}
+.box-image {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    
+    width: 100%; 
+    height: 170px;
+}
+
+.box-nouveau {
+    position: absolute; /* Permet de positionner la boîte par rapport au conteneur parent */
+    top: 20px; /* placer la boîte verticalement */
+    right: 20px; /* placer la boîte horizontalement */
+    width: 89px; 
+    height: 29px; 
+    display: flex;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+    background-color: $green; /* Couleur de fond de la boîte */
+    color: $greenfont;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;  
+
+}
+
+.box-texte {
+    display: flex;
+    padding: 15px 2px 12px 8px;
+    justify-content: space-between;
+}
+.box-nom_lieu {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 0px 10px;
+}
+
+.menu_icon {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 90px;
+}
+
+.fill-btn {
+    overflow: hidden;
+    position: relative;
+    clip-path: url(#menu_icon-svg-path);
+    transform: scale(0.35);
+}
+
+#fill-btn-path
+{
+    fill: none;
+    stroke: black;
+    stroke-width: 0.5rem;
+}
+
+.box-coeur {
+    display: inline-block;
+    position: relative;
+    padding-right: 10px;
+}
+
+
+
+.box-coeur i {
+    font-size: 24px;
+    color: #ff0000;
+}
+
+.box-coeur label {
+    cursor: pointer; /* Curseur de la souris en forme de main pour indiquer le clic */
+}
+
+.commander {
+    background-color: $grey2;
+    display: flex;
+    p {
+        @include nom-menu();
+        margin: 20px auto 20px auto;
+        text-align: center;
+        width: 180px;
+        border-radius: 20px;
+        padding: 12px;
+        color: white;
+        border: 2px solid white;
+        background: linear-gradient(0deg, rgba(255,121,218,1) 0%, rgba(147,86,220,1) 220%);
+    }
+}
+

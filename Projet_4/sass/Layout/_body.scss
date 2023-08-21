@@ -1,0 +1,207 @@
+@import '../Utils/mixins';
+@import '../Utils/variables';
+
+body { 
+    display: flex;
+    max-width: 768px;
+    margin: auto;
+    justify-content: center;
+    flex-direction: column;
+
+}
+
+/* L'incrémenteur - les îcones font-awesome - et les sections de la 
+  partie fonctionnement */
+
+.Fonctionnement {
+    display: flex;
+    flex-direction: column;
+    
+    margin: auto;
+    max-width: 90%;
+    box-sizing: border-box;
+    height: 440px;
+
+    h1 {
+    @include large-text;
+    margin-bottom: 0;
+    }
+
+    .box-consignes {
+    counter-reset: div-counter;
+    display: flex;
+    flex-direction: column;
+    margin: 15% 0% 0% 0%;
+    gap: 25px;
+    
+    section {
+        @include medium-text;
+        padding: 0px 20px 0px 0px;
+        display: flex;
+        height: 72px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.15);
+        background-color: #F6F6F6;
+        gap: 20px;
+
+        .fa-list-ul, .fa-mobile-screen-button {
+        color:$grey;
+        }
+        .fa-store {
+        color:$purple;
+        }
+
+        p {
+        width: 60%;
+        }
+        .numerotation {
+        position: relative;
+        counter-increment: div-counter;
+        color:$white;
+        right: 35px;
+        width: 20px;
+        border-radius: 50%;
+        background-color: $purple;
+        }
+        
+        .numerotation::before {
+        content: counter(div-counter);
+        
+        padding: 1px 3px 1px 5px;
+        }
+    }
+    }
+}
+
+.Restaurants {
+    
+    background-color: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 20px;
+    h1 {
+    @include large-text;
+    padding: 30px 0px 0px 20px;
+    }
+
+    .box_restaurants {
+        gap: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    a {
+    color: #000000;
+    }
+
+    h2 {
+    @include medium-text;
+    font-weight: bold;
+    }
+    section {
+    
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 90%;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+
+    }
+    img {
+    border-radius: 20px 20px 0px 0px;
+    object-fit: cover; 
+    position: absolute; 
+    width: 100%; 
+    height: 100%;  
+    }
+    h2, p {
+    margin: 0;
+    }
+    p {
+    @include small-text;
+    font-size: 16px;
+    }
+}
+.box-image {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    
+    width: 100%; 
+    height: 231px;
+}
+
+.box-nouveau {
+    position: absolute; /* Permet de positionner la boîte par rapport au conteneur parent */
+    top: 20px; /* placer la boîte verticalement */
+    right: 20px; /* placer la boîte horizontalement */
+    width: 89px; 
+    height: 29px; 
+    display: flex;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+    background-color: $green; /* Couleur de fond de la boîte */
+    color: $greenfont;
+    justify-content: center;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;  
+
+}
+
+.box-texte {
+    display: flex;
+    padding: 15px 2px 12px 8px;
+    justify-content: space-between;
+}
+.box-nom_lieu {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px 0px 10px;
+}
+
+.menu_icon {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 90px;
+}
+
+.fill-btn {
+    overflow: hidden;
+    position: relative;
+    clip-path: url(#menu_icon-svg-path);
+    transform: scale(0.35);
+}
+
+#fill-btn-path
+{
+    fill: none;
+    stroke: black;
+    stroke-width: 0.5rem;
+}
+
+.box-coeur {
+    display: inline-block;
+    position: relative;
+    padding-right: 10px;
+}
+
+
+
+.box-coeur i {
+    font-size: 24px;
+    color: #ff0000;
+}
+
+.box-coeur label {
+    cursor: pointer; /* Curseur de la souris en forme de main pour indiquer le clic */
+}
+
+

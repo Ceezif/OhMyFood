@@ -1,0 +1,174 @@
+@import 'Base/animations';
+@import 'Base/fonts';
+
+
+@import 'Layout/header';
+@import 'Layout/body';
+@import 'Layout/footer';
+@import 'Layout/desktop';
+
+@import 'Composants/buttons';
+
+
+
+* {
+    z-index: 10;
+}
+
+
+
+
+
+
+
+a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+.menu_icon {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 90px;
+  }
+  
+  .fill-btn {
+    overflow: hidden;
+    position: relative;
+    clip-path: url(#menu_icon-svg-path);
+    transform: scale(0.35);
+  }
+  
+  #fill-btn-path
+  {
+    fill: none;
+    stroke: black;
+    stroke-width: 0.5rem;
+  }
+  
+  .radientBg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    background: linear-gradient(#FF79DA 0%, #9356DC 80%);
+    transform: translateY(100px);
+    transition: transform 0.7s ease-out;
+  }
+  
+  .fill-btn:hover .radientBg {
+    transform: translateY(0);
+  }
+  
+  .fill-btn {
+    svg {
+      height: 90px;
+    }
+  }
+
+
+
+.prix_menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.checkbox {
+    display: none; /* Masque la checkbox */
+}
+
+.box_verte {
+    width: 60px;
+    height: 100%;
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+    background-color: $greenbox;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: calc(130%); /* Ajuster la position initiale */
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left 1s;
+    i {
+        text-align: center;
+        width: 20px;
+        height: 20px;
+        font-size: 18px;
+        color: $greenbox;
+        background-color: white;
+        border-radius: 50%;
+    }
+}
+
+
+
+
+
+
+
+/* Afficher la boîte verte lorsque la checkbox est cochée */
+.checkbox:checked + label .box_verte {
+    opacity: 1;
+    visibility: visible;
+    left: calc(100%); /* Décalage vers la gauche */
+}
+
+
+.checkbox:checked + label span {
+    position: relative;
+    display: block;
+    width: 100px;
+    transform: translate(-20%, 0%);
+    visibility: visible;
+    transition: left 1s;
+    
+}
+
+.checkbox:checked + label .prix-container {
+    transform: translateX(-30px); /* Décalage vers la gauche */
+    text-align: end;
+}
+/* Animation pour l'apparition des sections */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Décalage vers le bas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+/* Applique l'animation à chaque section avec un délai différent, et les conserve après l'animation */
+.entrees, .plats, .desserts {
+    opacity: 0; /* Les sections sont invisibles au début */
+    animation: fadeIn 1s ease-in-out forwards; /* Durée de l'animation et animation-fill-mode pour garder les propriétés après l'animation */
+}
+
+.plats {
+    animation-delay: 0.5s; /* Décalage de 0.5s */
+}
+
+.desserts {
+    animation-delay: 1s; /* Décalage de 1s */
+}
+
+

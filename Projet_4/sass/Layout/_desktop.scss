@@ -1,0 +1,111 @@
+@import '../Utils/mixins';
+@import '../Utils/variables';
+
+/* Version desktop */
+
+@media screen and (min-width: 768px) {
+    body {
+    min-width: 768px;
+    max-width: initial;
+    
+    width: auto;
+    }
+
+
+
+    main {
+    margin: auto;
+    }
+
+    /* Champ de recherche */
+
+
+
+    .accueil  {
+    h1 {
+        max-width: none;
+    }  
+    }
+
+    .Fonctionnement {
+    display: flex;
+    max-width: 80%;
+    height: 190px;
+    h1 {
+        position: relative;
+    }
+    .box-consignes {
+        flex-direction: row;
+        margin: 0;
+        position: relative;
+        top: 30px;
+        max-width: initial;
+        section {
+        justify-content: initial;
+        width: 30%;
+        gap: 15px;
+        .numerotation {
+            right: 15px;
+        }
+
+        p {
+            white-space: nowrap ;
+            text-align: center;
+            gap: 2px;
+            }
+        }
+    }
+}
+
+    .Restaurants {
+    section  {
+        margin: 0;
+    }
+    flex-direction: column;
+    h1 {
+        position: relative;
+        left: 10%;
+        padding: 30px 0px 0px 0px;
+        width: 75%;
+    }
+    
+    .box_restaurants {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 50px 100px;
+        section {
+        width: 40%;
+        gap: 20px;
+        
+        }
+    }
+}
+
+    footer {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: end;
+        height: 114px;
+        gap: 30px;
+        article {
+            display: flex;
+            gap: 30px;
+            p {
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    body {
+    margin: auto;
+
+    }
+
+
+}
