@@ -128,11 +128,6 @@ a {
           @include small-text;
         }
 
-        p:hover {
-          background-color: #000000;
-          color: red;
-        }
-
         p {
           @include medium-text;
           border-radius: 20px;
@@ -190,17 +185,17 @@ a {
         p {
           width: 60%;
         }
-        .numerotation {
-          position: relative;
+        div{
+          position: absolute;
           counter-increment: div-counter;
           color:$white;
-          right: 35px;
+          left: 10px;
           width: 20px;
           border-radius: 50%;
           background-color: $purple;
         }
         
-        .numerotation::before {
+        div::before {
           content: counter(div-counter);
           
           padding: 1px 3px 1px 5px;
@@ -365,149 +360,4 @@ footer {
       gap: 10px;
     }
     }
-}
-
-.menu_icon {
-  display: flex;
-  align-items: center;
-  height: 30px;
-  width: 90px;
-}
-
-.fill-btn {
-  overflow: hidden;
-  position: relative;
-  clip-path: url(#menu_icon-svg-path);
-  transform: scale(0.35);
-}
-
-#fill-btn-path
-{
-  fill: none;
-  stroke: black;
-  stroke-width: 0.5rem;
-}
-
-.radientBg {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  opacity: 1;
-  background: linear-gradient(#FF79DA 0%, #9356DC 80%);
-  transform: translateY(100px);
-  transition: transform 0.7s ease-out;
-}
-
-.fill-btn:hover .radientBg {
-  transform: translateY(0);
-}
-
-.fill-btn {
-  svg {
-    height: 90px;
-  }
-}
-
-/* Version desktop */
-
-@media screen and (min-width: 768px) {
-  body {
-    min-width: 768px;
-    
-    width: auto;
-  }
-
-  main {
-    margin: auto;
-  }
-
-  /* Champ de recherche */
-
-  input {
-    width: 12%;
-  }
-
-  .accueil  {
-    h1 {
-      max-width: none;
-    }  
-  }
-
-  .Fonctionnement {
-    display: flex;
-    max-width: initial;
-    height: 190px;
-    margin: 0;
-    h1 {
-      left: 10%;
-      position: relative;
-    }
-    .box-consignes {
-      flex-direction: row;
-      margin: 0;
-      position: relative;
-      top: 30px;
-      left: 10%;
-      max-width: 1080px;
-      section {
-        justify-content: initial;
-        width: 30%;
-        gap: 15px;
-        .numerotation {
-          right: 15px;
-        }
-
-        p {
-          white-space: nowrap ;
-          gap: 2px;
-        }
-      }
-    }
-  }
-
-  .Restaurants {
-    flex-direction: column;
-    h1 {
-      position: relative;
-      left: 10%;
-      padding: 30px 0px 0px 0px
-    }
-    
-    .box_restaurants {
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 1080px;
-      margin: auto;
-      gap: 50px;
-      section {
-        width: 490px;
-        gap: 20px;
-        
-      }
-    }
-  }
-
-  
-
-  footer {
-    display: flex;
-    flex-direction: row-reverse;
-    height: 114px;
-    gap: 30px;
-    article {
-      display: flex;
-      flex-direction: row-reverse;
-      gap: 30px;
-    }
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  body {
-    margin: auto;
-
-  }
-
-
 }
